@@ -7,10 +7,16 @@ function App() {
   return (
     <Provider>
       <Suspense fallback={<div>Loading...</div>}>
-        <div>
-          <h1 className="text-3xl font-bold underline">Hello world!</h1>
-          <TodoAdd />
-          <TodoList />
+        <div className="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
+          <div className="bg-white rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
+            <div className="mb-4">
+              <h1 className="text-grey-darkest">Todo List</h1>
+              <TodoAdd />
+            </div>
+            <div>
+              <TodoList />
+            </div>
+          </div>
         </div>
       </Suspense>
     </Provider>

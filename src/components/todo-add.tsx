@@ -1,19 +1,23 @@
 import { useAtom, useSetAtom } from "jotai";
-import React from "react";
-import { newTodo, postTodo, readWriteNewTodo } from "../atoms/todos.atom";
-import { ITodo } from "../interfaces/Todo.interfaces";
+import { postTodo, readWriteNewTodo } from "../atoms/todos.atom";
 
 const TodoAdd = () => {
   const [todo, setNewTodo] = useAtom(readWriteNewTodo);
 
   const saveTodo = useSetAtom(postTodo);
   return (
-    <div className="flex">
+    <div className="flex mt-4">
       <input
         onChange={(e) => setNewTodo({ ...todo, title: e.target.value })}
-        type="text"
+        className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker"
+        placeholder="Add Todo"
       />
-      <button onClick={() => saveTodo()}>Add</button>
+      <button
+        onClick={() => saveTodo()}
+        className="flex-no-shrink p-2 border-2 rounded text-teal border-teal hover:text-white hover:bg-teal"
+      >
+        Add
+      </button>
     </div>
   );
 };
