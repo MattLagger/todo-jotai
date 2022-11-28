@@ -1,7 +1,22 @@
-import React from "react";
+import { useAtom } from "jotai";
+import React, { useEffect } from "react";
+import { fetchTodos } from "../atoms/todos.atom";
+import TodoItem from "./todo-item";
 
 const TodoList = () => {
-  return <div>Lista de Todos</div>;
+  const [todos, setTodos] = useAtom(fetchTodos);
+
+  useEffect(() => {
+    setTodos();
+  }, []);
+
+  return (
+    <div className="flexbox">
+      {todos.map((todo) => (
+        <TodoItem todo={todo} />
+      ))}
+    </div>
+  );
 };
 
 export default TodoList;
