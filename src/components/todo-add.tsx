@@ -6,7 +6,7 @@ const TodoAdd = () => {
 
   const saveTodo = useSetAtom(postTodo);
   return (
-    <div className="flex mt-4">
+    <div className="flex mt-6">
       <input
         onChange={(e) => setNewTodo({ ...todo, title: e.target.value })}
         className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker"

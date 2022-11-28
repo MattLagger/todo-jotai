@@ -2,6 +2,7 @@ import { Provider } from "jotai";
 import { Suspense } from "react";
 import TodoAdd from "./components/todo-add";
 import TodoList from "./components/todo-list";
+import "./index.css";
 
 function App() {
   return (

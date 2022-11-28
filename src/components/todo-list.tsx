@@ -11,11 +11,11 @@ const TodoList = () => {
   }, []);
 
   return (
-    <div className="flexbox">
+    <>
       {todos.map((todo) => (
         <TodoItem todo={todo} />
       ))}
-    </div>
+    </>
   );
 };
 
