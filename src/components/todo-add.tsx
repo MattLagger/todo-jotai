@@ -1,5 +1,5 @@
 import { useAtom, useSetAtom } from "jotai";
-import { postTodo, readWriteNewTodo } from "../atoms/todos.atom";
+import { newTodo, postTodo, readWriteNewTodo } from "../atoms/todos.atom";
 
 const TodoAdd = () => {
   const [todo, setNewTodo] = useAtom(readWriteNewTodo);
@@ -9,6 +9,7 @@ const TodoAdd = () => {
     <div className="flex mt-6">
       <input
         onChange={(e) => setNewTodo({ ...todo, title: e.target.value })}
+        value={todo.title}
         className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker"
         placeholder="Add Todo"
       />

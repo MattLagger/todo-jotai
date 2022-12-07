@@ -1,7 +1,11 @@
+import { useSetAtom } from "jotai";
 import React, { Component } from "react";
+import { deleteTodo } from "../atoms/todos.atom";
 import { ITodo } from "../interfaces/Todo.interfaces";
 
 const TodoItem: React.FC<{ todo: ITodo }> = ({ todo }) => {
+  const excludeTodo = useSetAtom(deleteTodo);
+
   return (
     <div className="flex mb-4 items-center">
       <p
@@ -20,7 +24,10 @@ const TodoItem: React.FC<{ todo: ITodo }> = ({ todo }) => {
       >
         {todo.done ? "Done" : "Not Done"}
       </button>
-      <button className="flex-no-shrink p-2 ml-2 border-2 rounded text-red-500 border-red-500 hover:text-white hover:bg-red-200">
+      <button
+        className="flex-no-shrink p-2 ml-2 border-2 rounded text-red-500 border-red-500 hover:text-white hover:bg-red-200"
+        onClick={() => excludeTodo(todo.id)}
+      >
         Remove
       </button>
     </div>
